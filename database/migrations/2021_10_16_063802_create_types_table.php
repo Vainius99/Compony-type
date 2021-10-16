@@ -18,7 +18,6 @@ class CreateTypesTable extends Migration
             $table->string('title');
             $table->longText('description');
             $table->unsignedBigInteger('compony_id');
-
             $table->foreign('compony_id')->references('id')->on('componies');
 
             $table->timestamps();

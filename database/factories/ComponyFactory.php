@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Compony;
-use App\Models\Contact;
+
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ComponyFactory extends Factory
@@ -26,7 +26,7 @@ class ComponyFactory extends Factory
             'title' => $this->faker->company(),
             'description' => $this->faker->sentence(10),
             'logo' => $this->faker->imageUrl(300, 300, 'logos', true),
-            // 'contact_id '=> \App\Models\Contact::factory()->create()->id
+            'contact_id' => \App\Models\Contact::factory()->create()->id
         ];
     }
 }

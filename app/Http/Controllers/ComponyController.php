@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compony;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 
 class ComponyController extends Controller
@@ -39,6 +40,7 @@ class ComponyController extends Controller
         $compony = new Compony;
         $compony ->title = $request->compony_title;
         $compony ->description = $request->compony_description;
+        $compony ->contact_id = $request->compony_contact_id;
 
         if($request->has('compony_logo'))
         {
