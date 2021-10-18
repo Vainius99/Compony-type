@@ -14,10 +14,17 @@
                         </div>
                         <div class="form-group row">
                             <label for="compony_description" class="col-md-4 col-form-label text-md-right"> Description: </label>
-                            {{-- <input class="gray form-control col-md-6" type="text" name="compony_description" placeholder="Enter Compony Description" /> --}}
                             <div class="col-md-6">
                                 <textarea class="summernote" name="compony_description" cols="5" rows="5"></textarea>
                             </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="compony_contact_id" class="col-md-4 col-form-label text-md-right"> Contacts: </label>
+                            <select class="form-control col-md-6" name="compony_contact_id">
+                                @foreach ($contacts as $contact)
+                                <option value="{{$contact->id}}">{{$contact->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="form-group row">
                             <label for="compony_logo" class="col-md-4 col-form-label text-md-right"> Image: </label>

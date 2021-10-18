@@ -15,15 +15,24 @@
                         </div>
                         <div class="form-group row">
                             <label for="compony_description" class="col-md-4 col-form-label text-md-right"> Description: </label>
-                            {{-- <input class="gray form-control col-md-6" type="text" name="compony_description" value="{{$compony->description}}"/> --}}
                             <div class="col-md-6">
                                 <textarea class="summernote" name="compony_description" cols="5" rows="5">{{$compony->description}}</textarea>
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="compony_contact_id" class="col-md-4 col-form-label text-md-right"> Contacts: </label>
+
+                            <select class="form-control col-md-6" name="compony_contact_id">
+
+                                @foreach ($contacts as $contact)
+                                        <option value="{{$contact->id}}" @if($contact->id == $compony->contact_id) selected @endif >{{$contact->title}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="form-group row">
                             <label for="compony_logo" class="col-md-4 col-form-label text-md-right"> Image: </label>
                             <input class="gray form-control col-md-6" type="file" name="compony_logo"/>
-                            <img class='col-md-12' src="{{$compony->logo}}" alt='{{$compony->title}}' />
+                                    <img class="col-md-12" src="{{$compony->logo}}" alt='{{$compony->title}}' />
                         </div>
                     @csrf
                         <div class="form-group row mb-0">

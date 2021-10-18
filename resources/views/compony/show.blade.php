@@ -19,6 +19,14 @@
                         <div class="form-group center">
                             <img src="{{$compony->logo}}" >
                         </div>
+                        <div class="header gray">{{ __('Compony Contacts') }}</div>
+                        <div class="form-group center">
+                            <p>{{$compony->componyContact->phone}} <br>
+                                {{$compony->componyContact->address}}<br>
+                                {{$compony->componyContact->email}}<br>
+                                {{$compony->componyContact->country}}<br>
+                                {{$compony->componyContact->city}}</p>
+                        </div>
 
 
                     </div>

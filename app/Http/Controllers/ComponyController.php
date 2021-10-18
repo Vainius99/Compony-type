@@ -26,7 +26,9 @@ class ComponyController extends Controller
      */
     public function create()
     {
-        return view("compony.create");
+        $contacts = Contact::all();
+        return view("compony.create", ["contacts" => $contacts]);
+
     }
 
     /**
@@ -75,7 +77,10 @@ class ComponyController extends Controller
      */
     public function edit(Compony $compony)
     {
-        return view("compony.edit", ["compony"=> $compony]);
+        $contacts = Contact::all();
+        return view("compony.edit",["compony"=>$compony, "contacts"=>$contacts]);
+
+        // return view("compony.edit", ["compony"=> $compony]);
     }
 
     /**
@@ -90,6 +95,7 @@ class ComponyController extends Controller
 
         $compony ->title = $request->compony_title;
         $compony ->description = $request->compony_description;
+        $compony ->contact_id = $request->compony_contact_id;
 
         if($request->has('compony_logo'))
         {
@@ -109,7 +115,14 @@ class ComponyController extends Controller
      */
     public function destroy(Compony $compony)
     {
+        $types_count = $compony->componyTypes->count();
+
+        if($types_count!=0) {
+            return redirect()->route("compony.index")->with('error_message','Istrinti negalima Compony type egzistuoja');
+        }
         $compony->delete();
-        return redirect()->route('compony.index');
+        return redirect()->route("compony.index")->with('success_message','Compony sekmingai istrintas, Valio!!!');
+        // $compony->delete();
+        // return redirect()->route('compony.index');
     }
 }

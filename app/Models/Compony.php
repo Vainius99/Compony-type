@@ -11,4 +11,7 @@ class Compony extends Model
     public function componyContact() {
         return $this->belongsTo(Contact::class, 'contact_id', 'id');
     }
+    public function componyTypes() {
+        return $this->hasMany(Type::class, 'compony_id', 'id');
+    }
 }

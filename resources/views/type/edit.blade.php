@@ -14,7 +14,6 @@
                         </div>
                         <div class="form-group row">
                             <label for="type_description" class="col-md-4 col-form-label text-md-right"> Description: </label>
-                            {{-- <input class="gray form-control col-md-6" type="text" name="type_description" value="{{$type->description}}" /> --}}
                             <div class="col-md-6">
                                 <textarea class="summernote" name="type_description" cols="5" rows="5">{{$type->description}}</textarea>
                             </div>
@@ -26,7 +25,7 @@
 
                                 @foreach ($componies as $compony)
                                         <option value="{{$compony->id}}" @if($compony->id == $type->compony_id) selected @endif >{{$compony->title}}</option>
-                                    @endforeach
+                                @endforeach
                             </select>
 
                         </div>
